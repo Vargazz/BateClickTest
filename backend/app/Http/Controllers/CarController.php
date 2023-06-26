@@ -49,4 +49,11 @@ class CarController extends Controller
             return $car;
         };
     }
+
+    public function getDefects($id)
+    {
+        $car = Cars::findOrFail($id);
+        $defects = $car->defeitos;
+        return response()->json($defects);
+    }
 }
